@@ -13,13 +13,24 @@ var counter = {
   "q" : 0,  "r" : 0,  "s" : 0,  "t" : 0,
   "u" : 0,  "v" : 0,  "w" : 0,  "x" : 0,
   "y" : 0,  "z" : 0
-}
+};
 
 function countLetters(counter, sample_text){
-  // FIX ME
+  sample_text = sample_text.toLowerCase();
+  var eachLtr = sample_text.slice(0, 1);
+
+  if(sample_text.length === 0){
+    return counter;
+  }
+  if ( counter.hasOwnProperty(eachLtr) ) {
+    counter[eachLtr]++;
+  }
+  sample_text = sample_text.slice(1, sample_text.length);
+  return countLetters(counter, sample_text);
 }
 
+
 $(document).ready(function(){
-  countLetters(counter, sample_text);
+  console.log(countLetters(counter, sample_text));
   $("#result").html(JSON.stringify(counter));
 });
