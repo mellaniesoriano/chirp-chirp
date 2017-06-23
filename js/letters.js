@@ -19,7 +19,7 @@ function countLetters(counter, sample_text){
   sample_text = sample_text.toLowerCase();
   var eachLtr = sample_text.slice(0, 1);
 
-  if(sample_text.length === 0){
+  if ( sample_text.length === 0 ) {
     return counter;
   }
   if ( counter.hasOwnProperty(eachLtr) ) {
